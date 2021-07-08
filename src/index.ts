@@ -21,6 +21,8 @@ const MISTAKES: Mistake[] = [
     ["Emoji", Tense.Were],
     ["The Internet", Tense.Was],
     ["Sydney", Tense.Was],
+    ["gTLDs", Tense.Were],
+    ["MySQL", Tense.Was],
 ]
 
 addEventListener("fetch", (event) => {
