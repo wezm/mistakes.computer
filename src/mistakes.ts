@@ -13,7 +13,7 @@ const MISTAKES: Mistake[] = [
     ["gTLDs", Tense.Were],
     ["MySQL", Tense.Was],
     ["Modern Chat Apps", Tense.Were],
-    ["Javascript", Tense.Was],
+    ["JavaScript", Tense.Was],
     ["GitHub", Tense.Was],
 ]
 
