@@ -14,6 +14,7 @@ const MISTAKES: Mistake[] = [
     ["MySQL", Tense.Was],
     ["Modern Chat Apps", Tense.Were],
     ["Javascript", Tense.Was],
+    ["GitHub", Tense.Was],
 ]
 
 export default MISTAKES;
