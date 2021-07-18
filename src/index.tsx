@@ -5,7 +5,7 @@ import {
     serve,
     serveStatic,
     validateRequest,
-} from "https://deno.land/x/sift@0.3.3/mod.ts";
+} from "https://deno.land/x/sift@0.3.4/mod.ts";
 import MISTAKES from "./mistakes.ts";
 
 function random(min: number, max: number) : number {
@@ -30,10 +30,11 @@ const Mistakes = function() {
         <head>
             <meta charSet="utf-8"/>
             <meta name="viewport" content="width=device-width, initial-scale=1"/>
-            <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;&gt;&lt;text y=&quot;.9em&quot; font-size=&quot;90&quot;&gt;🚫&lt;/text&gt;&lt;/svg&gt;"/>
+            <link rel="stylesheet" href="style.css" />
+            <link rel="icon" href="favicon.png" type="image/png" />
             <title>mistakes.computer</title>
         </head>
-        <body style="text-align: center; font-family: sans-serif;">
+        <body>
             <h1>{mistakeText()}</h1>
             <footer style="font-size: 9pt; position: absolute; bottom: 0; left: 10px;">
                 <p>A silly project by <a href="https://www.wezm.net/">wezm</a> to try out <a href="https://deno.com/deploy">Deno Deploy</a>{". "}
