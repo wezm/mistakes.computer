@@ -2,3 +2,10 @@ body {
     text-align: center;
     font-family: sans-serif;
 }
+
+footer {
+    font-size: 9pt; 
+    position: absolute; 
+    bottom: 0; 
+    left: 10px;
+}
