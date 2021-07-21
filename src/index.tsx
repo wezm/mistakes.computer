@@ -64,7 +64,10 @@ async function slashCommand(request: Request) {
         );
     }
 
-    return json({ "text": mistakeText() });
+    return json({
+        "response_type": "in_channel",
+        "text": mistakeText()
+    });
 }
 
 function verifyToken(request: Request): boolean {
