@@ -5,7 +5,7 @@ enum Tense {
 
 export type Mistake = [string, Tense];
 
-const MISTAKES: Mistake[] = [
+export const MISTAKES: Mistake[] = [
     ["Computers", Tense.Were],
     ["Emoji", Tense.Were],
     ["The Internet", Tense.Was],
@@ -19,5 +19,3 @@ const MISTAKES: Mistake[] = [
     ["Excel", Tense.Was],
     ["Advertising", Tense.Was],
 ]
-
-export default MISTAKES;
