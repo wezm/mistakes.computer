@@ -6,7 +6,7 @@ import {
     serveStatic,
     validateRequest,
 } from "https://deno.land/x/sift@0.3.4/mod.ts";
-import MISTAKES from "./mistakes.ts";
+import { MISTAKES } from "./mistakes.ts";
 
 function random(min: number, max: number): number {
     return Math.floor(
@@ -64,9 +64,19 @@ async function slashCommand(request: Request) {
         );
     }
 
+    const formData = await request.formData();
+    const formText = formData.get("text");
+    let mistake: string;
+    if (typeof formText === "string" && !formText.match(/^\s*$/)) {
+        mistake = `${formText} a mistake`
+    }
+    else {
+        mistake = mistakeText();
+    }
+
     return json({
         "response_type": "in_channel",
-        "text": mistakeText()
+        "text": mistake
     });
 }
 
