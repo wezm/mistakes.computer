@@ -18,4 +18,5 @@ export const MISTAKES: Mistake[] = [
     ["Building applications out of web browsers", Tense.Was],
     ["Excel", Tense.Was],
     ["Advertising", Tense.Was],
+    ["YAML", Tense.Was],
 ]
