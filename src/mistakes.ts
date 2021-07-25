@@ -20,4 +20,5 @@ export const MISTAKES: Mistake[] = [
     ["Advertising", Tense.Was],
     ["YAML", Tense.Was],
     ["DNS", Tense.Was],
+    ["USB-C", Tense.Was],
 ]
