@@ -1,0 +1,4 @@
+test_task:
+  container:
+    image: denoland/deno:alpine
+  test_script: deno test
