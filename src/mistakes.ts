@@ -24,4 +24,5 @@ export const MISTAKES: Mistake[] = [
     ["Novelty web sites", Tense.Were],
     ["Kubernetes", Tense.Was],
     ["Garbage collection", Tense.Was],
+    ["Dependency injection", Tense.Was],
 ]
