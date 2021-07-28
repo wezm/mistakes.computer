@@ -1,3 +1,5 @@
+import { pick } from "./utils.ts";
+
 enum Tense {
     Was = "was",
     Were = "were",
@@ -29,3 +31,8 @@ export const MISTAKES: Mistake[] = [
     ["IDEs", Tense.Were],
     ["Facebook", Tense.Was],
 ]
+
+export function mistakeText(): string {
+    const mistake = pick(MISTAKES);
+    return `${mistake[0]} ${mistake[1]} a mistake`
+}

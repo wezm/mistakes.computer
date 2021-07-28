@@ -6,23 +6,7 @@ import {
     serveStatic,
     validateRequest,
 } from "https://deno.land/x/sift@0.3.4/mod.ts";
-import { MISTAKES } from "./mistakes.ts";
-
-function random(min: number, max: number): number {
-    return Math.floor(
-        (Math.random() * (max - min + 1)) + min
-    );
-}
-
-function pick<T>(array: Array<T>): T {
-    const i = random(0, array.length - 1);
-    return array[i];
-}
-
-function mistakeText(): string {
-    const mistake = pick(MISTAKES);
-    return `${mistake[0]} ${mistake[1]} a mistake`
-}
+import { mistakeText } from "./mistakes.ts";
 
 const Mistakes = function () {
     return (
