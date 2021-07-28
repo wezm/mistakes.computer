@@ -30,6 +30,7 @@ export const MISTAKES: Mistake[] = [
     ["Hacker News", Tense.Was],
     ["IDEs", Tense.Were],
     ["Facebook", Tense.Was],
+    ["C", Tense.Was],
 ]
 
 export function mistakeText(): string {
