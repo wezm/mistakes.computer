@@ -27,4 +27,5 @@ export const MISTAKES: Mistake[] = [
     ["Dependency injection", Tense.Was],
     ["Hacker News", Tense.Was],
     ["IDEs", Tense.Were],
+    ["Facebook", Tense.Was],
 ]
