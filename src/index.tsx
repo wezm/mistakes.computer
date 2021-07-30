@@ -15,6 +15,7 @@ type MistakesProps = {
 }
 
 const Mistakes = function (props: MistakesProps) {
+    const mistake = mistakeText(props.mistake);
     return (
         <html>
             <head>
@@ -23,10 +24,17 @@ const Mistakes = function (props: MistakesProps) {
                 <link rel="stylesheet" href="style.css" />
                 <link rel="icon" href="favicon.png" type="image/png" />
                 <title>mistakes.computer</title>
+                <meta property="og:url" content={"https://mistakes.computer/" + props.mistake} />
+                <meta property="og:title" content="mistakes.computer" />
+                <meta property="og:description" content={mistake} />
+                <meta property="og:type" content="article" />
+                <meta property="og:locale" content="en_AU" />
+                <meta name="twitter:card" content="summary" />
+                <meta name="twitter:creator" content="@wezm" />
             </head>
             <body>
                 <article>
-                    <main><h1>{mistakeText(props.mistake)}</h1>
+                    <main><h1>{mistake}</h1>
                     </main>
                     <footer>
                         <p>
