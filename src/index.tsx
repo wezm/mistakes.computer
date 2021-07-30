@@ -5,10 +5,16 @@ import {
     serve,
     serveStatic,
     validateRequest,
+    Routes,
 } from "https://deno.land/x/sift@0.3.4/mod.ts";
-import { mistakeText } from "./mistakes.ts";
+import { mistakeText, pickMistake, MISTAKES } from "./mistakes.ts";
+import { escapeRegExp } from "./utils.ts";
 
-const Mistakes = function () {
+type MistakesProps = {
+    mistake: string
+}
+
+const Mistakes = function (props: MistakesProps) {
     return (
         <html>
             <head>
@@ -19,11 +25,20 @@ const Mistakes = function () {
                 <title>mistakes.computer</title>
             </head>
             <body>
-                <h1>{mistakeText()}</h1>
-                <footer>
-                    <p>A silly project by <a href="https://www.wezm.net/">wezm</a> to try out <a href="https://deno.com/deploy">Deno Deploy</a>{". "}
-                        <a href="https://github.com/wezm/mistakes.computer">Source on GitHub</a>.</p>
-                </footer>
+                <article>
+                    <main><h1>{mistakeText(props.mistake)}</h1>
+                    </main>
+                    <footer>
+                        <p>
+                            A silly project by{" "}
+                            <a href="https://www.wezm.net/">wezm</a> to try out{" "}
+                            <a href="https://deno.com/deploy">Deno Deploy</a>{". "}
+                            <a href="https://github.com/wezm/mistakes.computer">Source on GitHub</a>{". "}
+                            <a href={"/" + props.mistake}>Share this mistake</a>.
+                        </p>
+                    </footer>
+
+                </article>
             </body>
         </html>
     );
@@ -55,7 +70,7 @@ async function slashCommand(request: Request) {
         mistake = `${formText} a mistake`
     }
     else {
-        mistake = mistakeText();
+        mistake = mistakeText(pickMistake());
     }
 
     return json({
@@ -70,10 +85,18 @@ function verifyToken(request: Request): boolean {
     return authorization === ("Token " + TOKEN)
 }
 
-serve({
-    "/": () => jsx(<Mistakes />),
+const routes: Routes = {
+    "/": () => jsx(<Mistakes mistake={pickMistake()} />),
     "/slash": slashCommand,
-    "/mistake.json": () => json({ mistake: mistakeText() }),
+    "/mistake.json": () => json({ mistake: mistakeText(pickMistake()) }),
     "/favicon.png": serveStatic("favicon.png", { baseUrl: import.meta.url }),
     "/style.css": serveStatic("style.css", { baseUrl: import.meta.url }),
-})
+    404: () => jsx(<Mistakes mistake="404" />, { status: 404 }),
+};
+for (const slug of MISTAKES.keys()) {
+    routes[escapeRegExp('/' + slug)] = () => {
+        console.log(slug);
+        return jsx(<Mistakes mistake={slug} />)
+    }
+}
+serve(routes)

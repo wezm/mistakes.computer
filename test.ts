@@ -1,5 +1,5 @@
-import { assert, assertEquals } from "https://deno.land/std@0.103.0/testing/asserts.ts";
-import { MISTAKES } from "./src/mistakes.ts";
+import { assert, assertEquals, assertMatch } from "https://deno.land/std@0.103.0/testing/asserts.ts";
+import { mistakeText } from "./src/mistakes.ts";
 import { random, pick } from "./src/utils.ts";
 
 Deno.test("random", () => {
@@ -8,6 +8,12 @@ Deno.test("random", () => {
 });
 
 Deno.test("pick", () => {
-    const val = pick(MISTAKES);
-    assert(MISTAKES.indexOf(val) >= 0);
+    const array = [1, 2, 3];
+    const val = pick(array);
+    assert(array.indexOf(val) >= 0);
+});
+
+Deno.test("mistakeText", () => {
+    assertEquals(mistakeText('emoji'), "😀 Emoji were a mistake");
+    assertEquals(mistakeText('invalid'), "Breaking URLs was a mistake");
 });
