@@ -29,7 +29,7 @@ const Mistakes = function (props: MistakesProps) {
                 <meta property="og:description" content={mistake} />
                 <meta property="og:type" content="article" />
                 <meta property="og:locale" content="en_AU" />
-                <meta property="og:image" content="favicon.png" />
+                <meta property="og:image" content="https://mistakes.computer/favicon.png" />
                 <meta name="twitter:card" content="summary" />
                 <meta name="twitter:creator" content="@wezm" />
             </head>
