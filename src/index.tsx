@@ -30,14 +30,14 @@ const Mistakes = function (props: MistakesProps) {
                     </main>
                     <footer>
                         <p>
+                            One of {MISTAKES.size} mistakes,{" "}
+                            <a href={"/" + props.mistake}>share this mistake</a>.<br />
                             A silly project by{" "}
                             <a href="https://www.wezm.net/">wezm</a> to try out{" "}
                             <a href="https://deno.com/deploy">Deno Deploy</a>{". "}
-                            <a href="https://github.com/wezm/mistakes.computer">Source on GitHub</a>{". "}
-                            <a href={"/" + props.mistake}>Share this mistake</a>.
+                            <a href="https://github.com/wezm/mistakes.computer">Source on GitHub</a>, contributions welcome.
                         </p>
                     </footer>
-
                 </article>
             </body>
         </html>

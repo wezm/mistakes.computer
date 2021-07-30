@@ -3,8 +3,8 @@ import { mistakeText } from "./src/mistakes.ts";
 import { random, pick } from "./src/utils.ts";
 
 Deno.test("random", () => {
-  const val = random(1, 10);
-  assert(val >= 1 && val <= 10);
+    const val = random(1, 10);
+    assert(val >= 1 && val <= 10);
 });
 
 Deno.test("pick", () => {
