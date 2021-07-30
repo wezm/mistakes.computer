@@ -31,6 +31,7 @@ export const MISTAKES: Mistake[] = [
     ["IDEs", Tense.Were],
     ["Facebook", Tense.Was],
     ["C", Tense.Was],
+    ["Electron", Tense.Was],
 ]
 
 export function mistakeText(): string {
