@@ -36,6 +36,7 @@ export const MISTAKES: Map<string, Mistake> = new Map([
     ["null", ["NULL", Tense.Was]],
     ["smartphones", ["Smartphones", Tense.Were]],
     ["printers", ["Printers", Tense.Were]],
+    ["twitter", ["Twitter", Tense.Was]]
 ]);
 const KEYS = Array.from(MISTAKES.keys());
 
