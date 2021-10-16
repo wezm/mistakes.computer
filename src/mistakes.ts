@@ -39,6 +39,7 @@ export const MISTAKES: Map<string, Mistake> = new Map([
     ["twitter", ["Twitter", Tense.Was]],
     ["cryptocurrency", ["Cryptocurrency", Tense.Was]],
     ["nft", ["NFTs", Tense.Were]],
+    ["nested-modals", ["Nested modals", Tense.Were]],
 ]);
 const KEYS = Array.from(MISTAKES.keys());
 
