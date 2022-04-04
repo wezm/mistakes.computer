@@ -21,6 +21,10 @@ Run the local server:
 
     deno run -A --no-check=remote src/index.tsx
 
+Run the tests:
+
+    deno test
+
 License
 -------
 
