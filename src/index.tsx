@@ -1,3 +1,4 @@
+/** @jsx h */
 import {
     h,
     jsx,
@@ -6,7 +7,7 @@ import {
     serveStatic,
     validateRequest,
     Routes,
-} from "https://deno.land/x/sift@0.3.4/mod.ts";
+} from "https://deno.land/x/sift@0.5.0/mod.ts";
 import { mistakeText, pickMistake, MISTAKES } from "./mistakes.ts";
 import { escapeRegExp } from "./utils.ts";
 
