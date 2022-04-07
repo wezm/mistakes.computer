@@ -15,9 +15,7 @@ JSON endpoint, and [Mattermost] slash command.
 Local Development
 -----------------
 
-For local development you need [Deno]. Then install [deployctl]:
-
-    deno install --allow-read --allow-write --allow-env --allow-net --allow-run --no-check --unstable -r -f https://deno.land/x/deploy/deployctl.ts
+For local development you need [Deno].
 
 Run the local server:
 
@@ -30,5 +28,4 @@ MIT
 
 [Deno]: https://deno.land/
 [Deno Deploy]: https://deno.com/deploy
-[deployctl]: https://github.com/denoland/deployctl
 [Mattermost]: https://mattermost.com/
