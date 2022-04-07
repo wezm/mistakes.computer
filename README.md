@@ -21,7 +21,7 @@ For local development you need [Deno]. Then install [deployctl]:
 
 Run the local server:
 
-    deployctl run --watch --libs=ns,fetchevent src/index.tsx
+    deno run -A --no-check=remote src/index.tsx
 
 License
 -------
