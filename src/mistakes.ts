@@ -36,6 +36,7 @@ export const MISTAKES: Map<string, Mistake> = new Map([
     ["null", ["NULL", Tense.Was]],
     ["smartphones", ["Smartphones", Tense.Were]],
     ["printers", ["Printers", Tense.Were]],
+    ["software", ["Software", Tense.Was]],
     ["twitter", ["Twitter", Tense.Was]],
     ["cryptocurrency", ["Cryptocurrency", Tense.Was]],
     ["nft", ["NFTs", Tense.Were]],
