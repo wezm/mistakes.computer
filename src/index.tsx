@@ -41,8 +41,8 @@ const Mistakes = function (props: MistakesProps) {
                     <footer>
                         <p>
                             One of {MISTAKES.size} mistakes,{" "}
-                            <a href={"/" + props.mistake}>share this mistake</a>.<br />
-                            A silly project by{" "}
+                            <a href={"/" + props.mistake}>share this mistake</a> or <a href="/">view another one</a>.<br />
+                            A fun project by{" "}
                             <a href="https://www.wezm.net/">wezm</a> to try out{" "}
                             <a href="https://deno.com/deploy">Deno Deploy</a>{". "}
                             <a href="https://github.com/wezm/mistakes.computer">Source on GitHub</a>, contributions welcome.
