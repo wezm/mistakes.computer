@@ -32,6 +32,7 @@ export const MISTAKES: Map<string, Mistake> = new Map([
     ["facebook", ["Facebook", Tense.Was]],
     ["c", ["C", Tense.Was]],
     ["c++", ["C++", Tense.Was]],
+    ["css", ["Cascading Style Sheets", Tense.Were]],
     ["electron", ["Electron", Tense.Was]],
     ["null", ["NULL", Tense.Was]],
     ["smartphones", ["Smartphones", Tense.Were]],
