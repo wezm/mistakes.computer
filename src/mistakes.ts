@@ -22,6 +22,7 @@ export const MISTAKES: Map<string, Mistake> = new Map([
     ["ads", ["Advertising", Tense.Was]],
     ["yaml", ["YAML", Tense.Was]],
     ["dns", ["DNS", Tense.Was]],
+    ["dst", ["Daylight Saving Time", Tense.Was]],
     ["usbc", ["USB-C", Tense.Was]],
     ["novelty-sites", ["Novelty web sites", Tense.Were]],
     ["kubernetes", ["Kubernetes", Tense.Was]],
