@@ -20,6 +20,7 @@ export const MISTAKES: Map<string, Mistake> = new Map([
     ["browsers-as-apps", ["Building applications out of web browsers", Tense.Was]],
     ["excel", ["Excel", Tense.Was]],
     ["ads", ["Advertising", Tense.Was]],
+    ["amp", ["Accelerated Mobile Pages", Tense.Were]],
     ["yaml", ["YAML", Tense.Was]],
     ["dns", ["DNS", Tense.Was]],
     ["dst", ["Daylight Saving Time", Tense.Was]],
