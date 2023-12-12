@@ -42,6 +42,8 @@ export const MISTAKES: Map<string, Mistake> = new Map([
     ["software", ["Software", Tense.Was]],
     ["regex", ["Regular Expressions", Tense.Were]],
     ["twitter", ["Twitter", Tense.Was]],
+    ["windows", ["Microsoft Windows", Tense.Was]],
+    ["msdos", ["Microsoft DOS", Tense.Was]],
     ["cryptocurrency", ["Cryptocurrency", Tense.Was]],
     ["nft", ["NFTs", Tense.Were]],
     ["nested-modals", ["Nested modals", Tense.Were]],
