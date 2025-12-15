@@ -49,7 +49,9 @@ export const MISTAKES: Map<string, Mistake> = new Map([
     ["nested-modals", ["Nested modals", Tense.Were]],
     ["iot", ["The IoT", Tense.Was]],
     ["colons", ["using '::' instead of ':' in Haskell type signatures", Tense.Was]],
-    ["xml", ["XML", Tense.Was]], 
+    ["xml", ["XML", Tense.Was]],
+    ["java", ["Java", Tense.Was]],
+    ["android", ["Android", Tense.Was]],
 ]);
 const KEYS = Array.from(MISTAKES.keys());
 
