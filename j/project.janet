@@ -8,14 +8,14 @@
   :repo "https://github.com/wezm/mistakes.computer.git"
 
   # Optional urls to git repositories that contain required artifacts.
-  #:dependencies ["https://github.com/janet-lang/json.git"]
+  :dependencies ["https://github.com/janet-lang/spork.git"]
 )
 
-# (declare-source
-#   # :source is an array or tuple that can contain
-#   # source files and directories that will be installed.
-#   # Often will just be a single file or single directory.
-#   :source ["server.janet"])
+(declare-source
+  # :source is an array or tuple that can contain
+  # source files and directories that will be installed.
+  # Often will just be a single file or single directory.
+  :source ["mistakes.janet" "template.janet"])
 
 (declare-executable
  :name "mistakes"
