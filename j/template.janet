@@ -27,7 +27,7 @@
         @[[:p
            (string "One of " count " mistakes, ")
            [:a {:href (string "/" slug)} "share this mistake"] " or "
-           [:a {:href "/"} "view another one"] ". "]
+           [:a {:href "/"} "view another one"] "." [:br]
           "A fun project by "
            [:a {:href "https://www.wezm.net/"} "wezm"]
            " to try out " [:del "Deno Deploy"] " "
@@ -35,13 +35,14 @@
            ". "
            # TODO move to Codeberg
            [:a {:href "https://github.com/wezm/mistakes.computer"} "Source on GitHub"]
-           ", contributions welcome."]]]]])
+           ", contributions welcome."]]]]]])
 
 
 (defn render [slug mistakes]
   (def mistake (mistakes/mistake-text mistakes slug))
+  (defn doctype [buf] (buffer/push buf "<!DOCTYPE html>"))
   (html
-    @[[:html
+    @[doctype [:html
        @[[:head (head slug mistake)]
          [:body (body slug mistake (length mistakes))]]]]))
 
