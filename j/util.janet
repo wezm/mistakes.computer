@@ -1,3 +1,4 @@
+(import spork/http)
 (import spork/randgen)
 
 (defn seed-rng [req]
@@ -12,3 +13,8 @@
         content  (file/read f :all)]
     (file/close f)
     content))
+
+(defn read-form-data [body]
+  (def m (peg/match http/query-string-grammar (string/trim body)))
+  ( if m (in m 0)))
+

@@ -2,6 +2,7 @@
 (import spork/json)
 
 (import ./mistakes)
+(import ./slash)
 (import ./template)
 (import ./util)
 
@@ -27,7 +28,7 @@
 (defn handler [ms]
   (var routes @{
       "/" (partial html-mistake nil ms)
-      #"/slash" slash-command
+      "/slash" (partial slash/command ms)
       "/mistake.json" (partial json-mistake ms)
       "/favicon.png" (partial serve-static "favicon.png" "image/png")
       "/style.css" (partial serve-static "style.css" "text/css")
