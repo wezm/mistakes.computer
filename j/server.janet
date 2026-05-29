@@ -1,32 +1,36 @@
 (import spork/http)
 (import spork/json)
-(import spork/randgen)
 
 (import ./mistakes)
 (import ./template)
+(import ./util)
 
 (defn home [req] {:status 200 :body "home"})
 
-(defn serve-static [file req] {:status 200 :body "todo serve-static"})
+(defn serve-static [file content-type req]
+  (def [ok res] (protect (util/read-file file)))
+  (if ok
+    {:status 200 :body res :headers {"Content-Type" content-type}}
+    {:status 404 :body "Not found" :headers {"Content-Type" "text/plain"}}))
 
 (defn html-mistake [slug ms req]
-  # The rng is a dynamic variable in the fibre environment. Each request is
-  # run in a new fibre, so the rng is initialised the same way, always
-  # yielding the same value from pick. Seed with remote port.
-  (def [_ remote-port] (net/peername (get req :connection)))
-  (randgen/set-seed remote-port)
+  (util/seed-rng req)
   (def body (template/render (or slug (mistakes/pick ms)) ms))
-  {:status 200 :body body})
+  {:status 200 :body body :headers {"Content-Type" "text/html"}})
 
-(defn json-mistake [req] {:status 200 :body (json/encode {:mistake "todos"})})
+(defn json-mistake [ms req]
+  (util/seed-rng req)
+  {:status 200
+   :body (json/encode {:mistake (mistakes/mistake-text ms (mistakes/pick ms))})
+   :headers {"Content-Type" "application/json"}})
 
 (defn handler [ms]
   (var routes @{
       "/" (partial html-mistake nil ms)
       #"/slash" slash-command
-      "/mistake.json" json-mistake
-      "/favicon.png" (partial serve-static "favicon.png")
-      "/style.css" (partial serve-static "style.css")
+      "/mistake.json" (partial json-mistake ms)
+      "/favicon.png" (partial serve-static "favicon.png" "image/png")
+      "/style.css" (partial serve-static "style.css" "text/css")
       :default {:status 404 :body "not found"}})
   (eachk slug ms (put routes (string "/" slug) (partial html-mistake slug ms)))
   (->
