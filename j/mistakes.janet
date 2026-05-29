@@ -1,59 +1,27 @@
 (import spork/randgen)
 
-(def mistakes {
-    "ads" '("Advertising" :was)
-    "amp" '("Accelerated Mobile Pages" :were)
-    "android" '("Android" :was)
-    "browsers-as-apps" '("Building applications out of web browsers" :was)
-    "c" '("C" :was)
-    "c++" '("C++" :was)
-    "chat" '("Modern Chat Apps" :were)
-    "colons" '("using '::' instead of ':' in Haskell type signatures" :was)
-    "computers" '("Computers" :were)
-    "cryptocurrency" '("Cryptocurrency" :was)
-    "css" '("Cascading Style Sheets" :were)
-    "dependency-injection" '("Dependency injection" :was)
-    "deno" '("Deno" :was)
-    "dns" '("DNS" :was)
-    "dst" '("Daylight Saving Time" :was)
-    "electron" '("Electron" :was)
-    "emoji" '("😀 Emoji" :were)
-    "excel" '("Excel" :was)
-    "facebook" '("Facebook" :was)
-    "gc" '("Garbage collection" :was)
-    "github" '("GitHub" :was)
-    "gtlds" '("gTLDs" :were)
-    "hacker-news" '("Hacker News" :was)
-    "ide" '("IDEs" :were)
-    "internet" '("The Internet" :was)
-    "iot" '("The IoT" :was)
-    "java" '("Java" :was)
-    "js" '("JavaScript" :was)
-    "kubernetes" '("Kubernetes" :was)
-    "llms" '("Large Language Models" :were)
-    "msdos" '("MS-DOS" :was)
-    "mysql" '("MySQL" :was)
-    "nested-modals" '("Nested modals" :were)
-    "nft" '("NFTs" :were)
-    "novelty-sites" '("Novelty web sites" :were)
-    "null" '("NULL" :was)
-    "printers" '("Printers" :were)
-    "regex" '("Regular Expressions" :were)
-    "smartphones" '("Smartphones" :were)
-    "software" '("Software" :was)
-    "sydney" '("Sydney" :was)
-    "twitter" '("Twitter" :was)
-    "usbc" '("USB-C" :was)
-    "windows" '("Microsoft Windows" :was)
-    "xml" '("XML" :was)
-    "yaml" '("YAML" :was)
-})
+(def- grammar
+  '{:slug (some (choice (range "az" "09") (set "-+")))
+    :ws (some " ")
+    :mistake (thru (choice " was" " were"))
+    :main (sequence (capture :slug) :ws (capture :mistake) -1)})
 
-(def allkeys (keys mistakes))
+(defn parse [line]
+  (peg/match grammar line))
 
-(defn mistake-text [slug]
-  (let [mistake (get mistakes slug '("Breaking URLs" :was))]
-    (string/join (tuple/join mistake '("a mistake")) " ")))
+(defn- add [mistakes pair]
+  (put mistakes ;pair))
 
-(defn pick [] (randgen/rand-value allkeys))
+(defn load [path]
+  (with [f (file/open path)]
+    (var mistakes (table))
+    (loop [line :iterate (file/read f :line)]
+      (-?>> (string/trimr line) parse (add mistakes)))
+    mistakes))
+
+(defn mistake-text [mistakes slug]
+  (let [mistake (get mistakes slug "Breaking URLs was")]
+    (string mistake " a mistake")))
+
+(defn pick [mistakes] (randgen/rand-value (keys mistakes)))
 

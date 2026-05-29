@@ -11,13 +11,7 @@
   :dependencies ["https://github.com/janet-lang/spork.git"]
 )
 
-(declare-source
-  # :source is an array or tuple that can contain
-  # source files and directories that will be installed.
-  # Often will just be a single file or single directory.
-  :source ["mistakes.janet" "template.janet"])
-
 (declare-executable
- :name "mistakes"
- :entry "server.janet"
- :install true)
+  :name "mistakes"
+  :entry "server.janet"
+  :install true)
