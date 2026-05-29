@@ -1,12 +1,22 @@
 (import spork/http)
 (import spork/json)
+(import spork/randgen)
+
 (import ./mistakes)
+(import ./template)
 
 (defn home [req] {:status 200 :body "home"})
 
 (defn serve-static [file req] {:status 200 :body "todo serve-static"})
 
-(defn html-mistake [slug ms req] {:status 200 :body (string "todo html: " slug)})
+(defn html-mistake [slug ms req]
+  # The rng is a dynamic variable in the fibre environment. Each request is
+  # run in a new fibre, so the rng is initialised the same way, always
+  # yielding the same value from pick. Seed with remote port.
+  (def [_ remote-port] (net/peername (get req :connection)))
+  (randgen/set-seed remote-port)
+  (def body (template/render (or slug (mistakes/pick ms)) ms))
+  {:status 200 :body body})
 
 (defn json-mistake [req] {:status 200 :body (json/encode {:mistake "todos"})})
 

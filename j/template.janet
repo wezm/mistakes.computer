@@ -39,7 +39,7 @@
 
 
 (defn render [slug mistakes]
-  (def mistake (mistakes/mistake-text slug mistakes))
+  (def mistake (mistakes/mistake-text mistakes slug))
   (html
     @[[:html
        @[[:head (head slug mistake)]
