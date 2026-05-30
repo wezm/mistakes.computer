@@ -20,6 +20,7 @@ export const MISTAKES: Map<string, Mistake> = new Map([
     ["cryptocurrency", ["Cryptocurrency", Tense.Was]],
     ["css", ["Cascading Style Sheets", Tense.Were]],
     ["dependency-injection", ["Dependency injection", Tense.Was]],
+    ["deno", ["Deno", Tense.Was]],
     ["dns", ["DNS", Tense.Was]],
     ["dst", ["Daylight Saving Time", Tense.Was]],
     ["electron", ["Electron", Tense.Was]],
