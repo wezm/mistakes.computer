@@ -1,4 +1,11 @@
 test_task:
   container:
-    image: denoland/deno:alpine
-  test_script: deno test
+    image: alpine:3
+  install_script:
+    - apk add janet-dev janet-static git gcc musl-dev
+    - wget https://github.com/janet-lang/jpm/archive/refs/tags/v1.2.0.tar.gz
+    - tar zxf v1.2.0.tar.gz
+    - (cd jpm-1.2.0 && PREFIX=/usr janet bootstrap.janet)
+  test_script:
+    - jpm deps
+    - jpm test
