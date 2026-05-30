@@ -1,3 +1,8 @@
+> [!IMPORTANT]  
+> Moved to Codeberg 👉 <https://codeberg.org/wezm/mistakes.computer>.
+
+----
+
 mistakes.computer
 =================
 
