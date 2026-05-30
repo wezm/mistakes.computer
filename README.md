@@ -1,8 +1,8 @@
 mistakes.computer
 =================
 
-A silly project to try out [Deno Deploy]. Picks a random thing that was a
-mistake (most of which the application uses 😅). Provides a website,
+A silly project to try out ~~Deno Deploy~~ [Janet]. It picks a random thing
+that was a mistake (some of which the application uses 😅). Provides a website,
 JSON endpoint, and [Mattermost] slash command.
 
 ### Endpoints
@@ -15,21 +15,33 @@ JSON endpoint, and [Mattermost] slash command.
 Local Development
 -----------------
 
-For local development you need [Deno].
+For local development you need [Janet] and [jpm]. On Casuarina Linux
+install the `jpm` package to get both.
+
+Initial setup, pull deps:
+
+    jpm deps
 
 Run the local server:
 
-    deno run -A --no-check=remote src/index.tsx
+    janet server.janet
 
 Run the tests:
 
-    deno test
+    jpm test
+
+Adding a Mistake
+----------------
+
+The mistakes are stored in simple text format in [mistakes.txt]. The format is:
+`<URL slug> <whitespace> <mistake>`.
 
 License
 -------
 
 MIT
 
-[Deno]: https://deno.land/
-[Deno Deploy]: https://deno.com/deploy
+[Janet]: https://janet-lang.org/
+[jpm]: https://github.com/janet-lang/jpm
 [Mattermost]: https://mattermost.com/
+[mistakes.txt]: https://github.com/wezm/mistakes.computer/blob/main/mistakes.txt
